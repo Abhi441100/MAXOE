@@ -1,0 +1,5 @@
+outcomes = [100, 0]
+probabilities = [0.1, 0.9]
+
+expected_value = sum(o * p for o, p in zip(outcomes, probabilities))
+print("Expected Value:", expected_value)
