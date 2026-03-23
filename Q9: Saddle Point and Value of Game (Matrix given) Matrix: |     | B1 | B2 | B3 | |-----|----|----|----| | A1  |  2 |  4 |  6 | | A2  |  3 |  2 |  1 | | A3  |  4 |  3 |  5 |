@@ -1,0 +1,31 @@
+import numpy as np
+
+matrix = np.array([
+    [2, 4, 6],
+    [3, 2, 1],
+    [4, 3, 5]
+])
+
+row_minima = matrix.min(axis=1)
+maximin = row_minima.max()
+
+col_maxima = matrix.max(axis=0)
+minimax = col_maxima.min()
+
+saddle_point = None
+for i in range(matrix.shape[0]):
+    for j in range(matrix.shape[1]):
+        if matrix[i, j] == maximin == minimax:
+            saddle_point = (i+1, j+1)
+
+print("Row minima:", row_minima)
+print("Maximin:", maximin)
+print("Column maxima:", col_maxima)
+print("Minimax:", minimax)
+
+if saddle_point:
+    print("Saddle Point at:", saddle_point)
+    print("Value of Game:", maximin)
+else:
+    print("No Saddle Point exists.")
+    print("Value of Game lies between", maximin, "and", minimax)
